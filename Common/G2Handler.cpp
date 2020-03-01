@@ -72,7 +72,7 @@ void CG2Handler::process(CHeaderData& header)
 	unsigned char flag1 = header.getFlag1();
 	if (flag1 == 0x01) {
 		// Don't check the incoming stream
-		Message(wxT("G2 busy message received"));
+		wxLogMessage(wxT("G2 busy message received"));
 		return;
 	}
 
