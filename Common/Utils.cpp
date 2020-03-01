@@ -18,7 +18,7 @@ void CUtils::dump(const wxChar* title, const bool* data, unsigned int length)
 	wxASSERT(title != NULL);
 	wxASSERT(data != NULL);
 
-	wxLogMessage(wxT("%s"), title);
+	//wxLogMessage(wxT("%s"), title);
 
 	unsigned int offset = 0U;
 
@@ -52,7 +52,7 @@ void CUtils::dump(const wxChar* title, const bool* data, unsigned int length)
 
 		output += wxT('*');
 
-		wxLogMessage(wxT("%04X:  %s"), offset / 8U, output.c_str());
+		//wxLogMessage(wxT("%04X:  %s"), offset / 8U, output.c_str());
 
 		offset += 128U;
 	}
@@ -63,7 +63,7 @@ void CUtils::dumpRev(const wxChar* title, const bool* data, unsigned int length)
 	wxASSERT(title != NULL);
 	wxASSERT(data != NULL);
 
-	wxLogMessage(wxT("%s"), title);
+	//wxLogMessage(wxT("%s"), title);
 
 	unsigned int offset = 0U;
 
@@ -97,7 +97,7 @@ void CUtils::dumpRev(const wxChar* title, const bool* data, unsigned int length)
 
 		output += wxT('*');
 
-		wxLogMessage(wxT("%04X:  %s"), offset / 8U, output.c_str());
+		//wxLogMessage(wxT("%04X:  %s"), offset / 8U, output.c_str());
 
 		offset += 128U;
 	}
@@ -108,7 +108,7 @@ void CUtils::dump(const wxChar* title, const unsigned char* data, unsigned int l
 	wxASSERT(title != NULL);
 	wxASSERT(data != NULL);
 
-	wxLogMessage(wxT("%s"), title);
+	//wxLogMessage(wxT("%s"), title);
 
 	unsigned int offset = 0U;
 
@@ -139,7 +139,7 @@ void CUtils::dump(const wxChar* title, const unsigned char* data, unsigned int l
 
 		output += wxT('*');
 
-		wxLogMessage(wxT("%04X:  %s"), offset, output.c_str());
+		//wxLogMessage(wxT("%04X:  %s"), offset, output.c_str());
 
 		offset += 16U;
 
