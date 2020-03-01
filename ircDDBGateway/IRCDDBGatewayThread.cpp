@@ -726,7 +726,7 @@ void CIRCDDBGatewayThread::processIrcDDB()
 						break;
 
 					if (!address.IsEmpty()) {
-						wxLogMessage(wxT("USER: %s %s %s %s"), user.c_str(), repeater.c_str(), gateway.c_str(), address.c_str());
+						//wxLogMessage(wxT("USER: %s %s %s %s"), user.c_str(), repeater.c_str(), gateway.c_str(), address.c_str());
 						m_cache.updateUser(user, repeater, gateway, address, timestamp, DP_DEXTRA, false, false);
 #if defined(ENABLE_NAT_TRAVERSAL)
 						m_natTraversal->traverseNatG2(address);
@@ -745,7 +745,7 @@ void CIRCDDBGatewayThread::processIrcDDB()
 
 					CRepeaterHandler::resolveRepeater(repeater, gateway, address, DP_DEXTRA);
 					if (!address.IsEmpty()) {
-						wxLogMessage(wxT("REPEATER: %s %s %s"), repeater.c_str(), gateway.c_str(), address.c_str());
+						//wxLogMessage(wxT("REPEATER: %s %s %s"), repeater.c_str(), gateway.c_str(), address.c_str());
 						m_cache.updateRepeater(repeater, gateway, address, DP_DEXTRA, false, false);
 #if defined(ENABLE_NAT_TRAVERSAL)
 						m_natTraversal->traverseNatG2(address);
@@ -765,7 +765,7 @@ void CIRCDDBGatewayThread::processIrcDDB()
 					CDExtraHandler::gatewayUpdate(gateway, address);
 					CDPlusHandler::gatewayUpdate(gateway, address);
 					if (!address.IsEmpty()) {
-						wxLogMessage(wxT("GATEWAY: %s %s"), gateway.c_str(), address.c_str());
+						//wxLogMessage(wxT("GATEWAY: %s %s"), gateway.c_str(), address.c_str());
 						m_cache.updateGateway(gateway, address, DP_DEXTRA, false, false);
 #if defined(ENABLE_NAT_TRAVERSAL)						
 						m_natTraversal->traverseNatG2(address);
@@ -825,7 +825,7 @@ void CIRCDDBGatewayThread::processRepeater(IRepeaterProtocolHandler* handler)
 			case RT_HEADER: {
 					CHeaderData* header = handler->readHeader();
 					if (header != NULL) {
-						// wxLogMessage(wxT("Repeater header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), header->getMyCall1().c_str(), header->getMyCall2().c_str(), header->getYourCall().c_str(), header->getRptCall1().c_str(), header->getRptCall2().c_str(), header->getFlag1(), header->getFlag2(), header->getFlag3());
+						wxLogMessage(wxT("Repeater header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), header->getMyCall1().c_str(), header->getMyCall2().c_str(), header->getYourCall().c_str(), header->getRptCall1().c_str(), header->getRptCall2().c_str(), header->getFlag1(), header->getFlag2(), header->getFlag3());
 
 						CRepeaterHandler* repeater = CRepeaterHandler::findDVRepeater(*header);
 						if (repeater == NULL)
@@ -853,7 +853,7 @@ void CIRCDDBGatewayThread::processRepeater(IRepeaterProtocolHandler* handler)
 			case RT_BUSY_HEADER: {
 					CHeaderData* header = handler->readBusyHeader();
 					if (header != NULL) {
-						// wxLogMessage(wxT("Repeater busy header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), header->getMyCall1().c_str(), header->getMyCall2().c_str(), header->getYourCall().c_str(), header->getRptCall1().c_str(), header->getRptCall2().c_str(), header->getFlag1(), header->getFlag2(), header->getFlag3());
+						wxLogMessage(wxT("Repeater busy header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), header->getMyCall1().c_str(), header->getMyCall2().c_str(), header->getYourCall().c_str(), header->getRptCall1().c_str(), header->getRptCall2().c_str(), header->getFlag1(), header->getFlag2(), header->getFlag3());
 
 						CRepeaterHandler* repeater = CRepeaterHandler::findDVRepeater(*header);
 						if (repeater == NULL)
@@ -881,7 +881,7 @@ void CIRCDDBGatewayThread::processRepeater(IRepeaterProtocolHandler* handler)
 			case RT_DD: {
 					CDDData* data = handler->readDD();
 					if (data != NULL) {
-						// wxLogMessage(wxT("DD header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), data->getMyCall1().c_str(), data->getMyCall2().c_str(), data->getYourCall().c_str(), data->getRptCall1().c_str(), data->getRptCall2().c_str(), data->getFlag1(), data->getFlag2(), data->getFlag3());
+						wxLogMessage(wxT("DD header - My: %s/%s  Your: %s  Rpt1: %s  Rpt2: %s  Flags: %02X %02X %02X"), data->getMyCall1().c_str(), data->getMyCall2().c_str(), data->getYourCall().c_str(), data->getRptCall1().c_str(), data->getRptCall2().c_str(), data->getFlag1(), data->getFlag2(), data->getFlag3());
 
 						CRepeaterHandler* repeater = CRepeaterHandler::findDDRepeater();
 						if (repeater == NULL)
